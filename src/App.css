@@ -1,0 +1,193 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  scroll-behavior: smooth;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #592A0E;
+  cursor: pointer;
+}
+
+/* Header Styling */
+.App-header {
+  background-color: #F2C879;
+  color: #592A0E;
+  width: 100%;
+  top: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
+
+/* Styling Section */
+section{
+  padding: 10px;
+  background-color: #F2C879;
+  max-width: 650px;
+  margin: 30px auto;
+  border-radius: 10px;
+}
+
+/* Styling Form */
+form{
+  text-align: center;
+  margin: 50px 30px 0 25px;
+  padding: 50px;
+}
+
+input, textarea{
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #A6691F;
+  border-radius: 4px;
+  resize: vertical;
+  font-weight: bolder;
+  margin: 10px 0;
+  font-size: 15px;
+}
+
+button{
+  background-color: #592A0E;
+  color: #F2F0E4;
+  float: right;
+  border: solid #D9A443;
+  border-radius: 4px;
+  font-weight: bolder;
+  padding: 10px 20px;
+  overflow: hidden;
+  margin-left: 10px;
+}
+
+button:hover{
+  background-color: #A6691F;
+}
+
+/* Styling Buttons */
+.btns{
+  margin: 60px 0;
+  padding: 0 15px 50px 15px;
+}
+
+/* Styling List */
+.list-heading{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  /* margin: 10px; */
+}
+
+.list{
+  margin: 20px 30px;
+  padding: 10px 15px;
+  background-color: #592A0E;
+  color: #F2F0E4;
+}
+
+ul{
+  padding: 10px;
+}
+
+li{
+  position: relative;
+  padding: 15px 50px;
+  list-style: none;
+  /* font-size: 18px; */
+  transition: 0.2s;
+  /* font-weight: bolder; */
+
+  /*make the list items unselectable*/
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+li:hover{
+  background-color: #D9A443;
+}
+
+/*when checked*/
+.checked {
+  background: #F2C879;
+  color: #A6691F;
+  text-decoration: line-through;
+  opacity: 0.9;
+}
+
+/*add 'checked' mark*/
+/* .checked::before {
+  content: '';
+  position: absolute;
+  border-color: #592A0E;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 10px;
+  left: 15px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+} */
+
+/* complete button */
+.complete {
+  position: absolute;
+  right: 80px;
+  top: 0;
+  padding: 12px 16px 12px 16px;
+}
+
+.complete:hover {
+  background-color: #A6691F;
+  color: #F2F0E4;
+}
+
+/* edit button */
+.edit {
+  position: absolute;
+  right: 40px;
+  top: 0;
+  padding: 12px 16px 12px 16px;
+}
+
+.edit:hover {
+  background-color: #A6691F;
+  color: #F2F0E4;
+}
+
+/* close button*/
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 12px 16px 12px 16px;
+  display: block;
+}
+
+.close:hover {
+  background-color: #A6691F;
+  color: #F2F0E4
+}
+
+/* Footer Styling */
+footer{
+  bottom: 0;
+  text-align: center;
+  background-color: #F2C879;
+  color: #592A0E;
+  padding: 10px;
+  font-weight: bolder;
+  /* align-items: center; */
+  /* justify-content: center; */
+  /* position: relative; */
+  /* width: 100%; */
+  
+
+}
