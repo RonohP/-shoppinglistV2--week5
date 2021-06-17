@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather+Sans')
 * {
   box-sizing: border-box;
 }
@@ -12,18 +13,68 @@ html, body {
 }
 
 /* Header Styling */
-.App-header {
+.App-header{
   background-color: #F2C879;
   color: #592A0E;
   width: 100%;
   top: 0;
   position: relative;
-  display: flex;
+  text-align: center;
+  /* display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
   font-size: calc(10px + 2vmin);
+
 }
+
+.App-header h1{
+  margin: 0;
+
+}
+
+/* Navbar styling */
+nav{
+  position: relative;
+}
+
+ul.nav-bar{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  width: 100%;
+  background-color: #F2C879;
+  color: #F2F0E4;
+}
+
+ul.nav-bar li{
+  display: inline;
+  float: right;
+}
+
+ul.nav-bar li.li-left{
+  display: inline;
+  float: left;
+}
+
+ul.nav-bar li a{
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  margin: 0;
+  color: #592A0E;
+  font-weight: bolder;
+}
+
+ul.nav-bar li a:hover{
+  background-color: #A6691F;
+  color: #F2F0E4;
+}
+
+
 
 /* Styling Section */
 section{
@@ -91,11 +142,11 @@ button:hover{
   color: #F2F0E4;
 }
 
-ul{
+ul#myList{
   padding: 10px;
 }
 
-li{
+ul#myList li{
   position: relative;
   padding: 15px 50px;
   list-style: none;
@@ -110,7 +161,7 @@ li{
   user-select: none;
 }
 
-li:hover{
+ul#myList li:hover{
   background-color: #D9A443;
 }
 
@@ -188,6 +239,4 @@ footer{
   /* justify-content: center; */
   /* position: relative; */
   /* width: 100%; */
-  
-
 }
