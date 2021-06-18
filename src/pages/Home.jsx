@@ -7,6 +7,8 @@ import Form from '../components/Form';
 import FilterButton from '../components/Buttons';
 import List from '../components/List';
 import NavBar from '../components/NavBar';
+import Login from './Login';
+import Register from './Register';
 
 const DATA = [
   { id: 'list-1', text: 'Pay Bills', desc: 'Electricity', class: 'checked' },
@@ -104,25 +106,44 @@ function Home() {
   const tasksNoun = taskList.length !== 0 ? 'tasks' : 'task';
   const listHeading = `${taskList.length} ${tasksNoun} remaining`;
 
+  const modal = document.getElementById('id01');
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onClick = function (event) {
+    if (event.target === modal) {
+      modal.style.display = 'none';
+    }
+  };
+
+  const display = () =>{
+    if(modal){
+      return (modal.style.display = 'block');
+    }
+    };
+
+    const nonDisplay = () => {
+      modal.style.display = 'none';
+    };
+
   return (
     <div className='App'>
       <nav>
         <ul className='nav-bar'>
-            <NavBar
-              href='/register'
-              title='Register'
-              icon={<FontAwesomeIcon icon={faUserPlus} />}
-            />
-            <NavBar
-              href='/login'
-              title='Login'
-              icon={<FontAwesomeIcon icon={faSignInAlt} />}
-            />
-            <NavBar
-              href='/home'
-              title='Home'
-              icon={<FontAwesomeIcon icon={faHome} />}
-            />
+          <NavBar
+            href='/register'
+            title='Register'
+            icon={<FontAwesomeIcon icon={faUserPlus} />}
+          />
+          <NavBar
+            href='/login'
+            title='Login'
+            icon={<FontAwesomeIcon icon={faSignInAlt} />}
+          />
+          <NavBar
+            href='/home'
+            title='Home'
+            icon={<FontAwesomeIcon icon={faHome} />}
+          />
         </ul>
       </nav>
       <header className='App-header'>

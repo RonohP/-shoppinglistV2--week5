@@ -3,7 +3,7 @@ import { useState } from 'react';
 const NavBar = (props) => {
   return (
     <li>
-      <a href={props.href} title={props.title}>
+      <a href={props.href} title={props.title} onClick={props.onClick}>
         {props.icon}
       </a>
     </li>

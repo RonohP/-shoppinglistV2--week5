@@ -77,7 +77,7 @@ const List = (props) => {
         {<FontAwesomeIcon icon={faEdit} />}
       </span>
       <span
-        className='close'
+        className='delete'
         onClick={(e) => {
           // stop the click event from bubbling to the parent component
           // e.stopPropagation();
