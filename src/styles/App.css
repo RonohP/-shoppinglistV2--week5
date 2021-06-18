@@ -1,5 +1,10 @@
+*{
+  box-sizing: border-box;
+}
 /* 404 Page Not Found Styling */
-
+html,body{
+  background-color: #F2F0E4;
+}
 main{
 	height: 100vh;
 	width: 100vw;
@@ -62,49 +67,8 @@ main{
 }
 
 /* Login Page */
-body {font-family: Arial, Helvetica, sans-serif;}
-
-/* Full-width input fields */
-/* input[type=text], input[type=password] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-} */
-
-/* Set a style for all buttons */
-/* button {
-  background-color: #04AA6D;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-} */
-
-/* button:hover {
-  opacity: 0.8;
-} */
-
-/* Extra styles for the cancel button */
-/* .cancelbtn {
-  width: auto;
-  padding: 10px 18px;
-  background-color: #f44336;
-} */
 
 /* position the close button */
-.imgcontainer {
-  text-align: center;
-  margin: 24px 0 12px 0;
-  position: relative;
-  padding: 15px;
-}
-
-
 .container {
   padding: 16px;
 }
@@ -177,5 +141,99 @@ span.psw {
   }
   .cancelbtn {
      width: 100%;
+  }
+}
+
+/* Main Page */
+.main{
+  /* margin-top: 70px; */
+  position: relative;
+}
+
+/* vertical line */
+.vl {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  border: 2px solid #A6691F;
+  height: 500px;
+  margin-top: 80px;
+}
+
+/* text inside the vertical line */
+.vl-innertext {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #592A0E;
+  border: 1px solid #A6691F;
+  border-radius: 50%;
+  padding: 8px 10px;
+}
+
+.column{
+  float: left;
+  width: 50%;
+  padding: 10px;
+  margin: 10px 0 10px 0;
+  height: 500px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  border: solid #A6691F;
+  background-color: #F2C879;
+}
+
+.row{
+  margin: 70px;
+}
+
+.row::after{
+  content: '';
+  display: table;
+  clear: both;
+}
+.column-btn{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  margin: 90px;
+}
+.column button{
+  width:70%;
+  margin: 25px 0;
+  padding: 12px;
+  opacity: 0.85s;
+  display: inline-block;
+
+}
+.column a{
+  display: block;
+  text-align: center;
+  /* padding: 14px 16px; */
+  text-decoration: none;
+  font-size: 20px;
+  margin: 0;
+  color: #F2F0E4;
+  font-weight: bolder;
+  
+}
+
+@media screen and (max-width: 650px) {
+  .row{
+    margin:40px;
+  }
+  .column {
+    width: 100%;
+    margin-top: 0;
+  }
+  /* hide the vertical line */
+  .vl {
+    display: none;
+  }
+
+  section{
+    margin: 20px 10px;
   }
 }

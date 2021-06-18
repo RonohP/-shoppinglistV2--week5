@@ -8,6 +8,9 @@ const Login = () => {
 
   return (
     <div className='login-page'>
+      <header className='App-header'>
+        <h1>To-Do</h1>
+      </header>
       <nav>
         <ul className='nav-bar'>
           <NavBar
@@ -55,11 +58,9 @@ const Login = () => {
           </div>
         </form>
       </div>
-      {/* //   <form >
-  //     <input type="text" placeholder="Enter email..." required/>
-  //     <input type="password" placeholder="Password..."/>
-  //     <button>Login</button>
-  //   </form> */}
+      <footer>
+        <p>&copy; purity.rono 2021</p>
+      </footer>
     </div>
   );
 };

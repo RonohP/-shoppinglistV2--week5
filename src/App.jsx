@@ -11,9 +11,9 @@ function App() {
     <Router>
       <Switch>
         {/* Renders the Main component with / */}
-        {/* <Route exact path='/'>
+        <Route exact path='/'>
           <Main />
-        </Route> */}
+        </Route>
         {/* Renders the Home component with /home */}
         <Route  path='/home'>
           <Home />

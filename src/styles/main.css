@@ -173,20 +173,6 @@ ul#myList li:hover{
   opacity: 0.9;
 }
 
-/*add 'checked' mark*/
-/* .checked::before {
-  content: '';
-  position: absolute;
-  border-color: #592A0E;
-  border-style: solid;
-  border-width: 0 2px 2px 0;
-  top: 10px;
-  left: 15px;
-  transform: rotate(45deg);
-  height: 15px;
-  width: 7px;
-} */
-
 /* complete button */
 .complete {
   position: absolute;
@@ -235,8 +221,4 @@ footer{
   color: #592A0E;
   padding: 10px;
   font-weight: bolder;
-  /* align-items: center; */
-  /* justify-content: center; */
-  /* position: relative; */
-  /* width: 100%; */
 }
