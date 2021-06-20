@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import '../styles/App.css';
 import '../styles/main.css';
 import list from '../list.svg';
@@ -13,10 +12,10 @@ const Main = () => {
         <span className='vl-innertext'></span>
       </div>
       <div className='row'>
-        <div className='column'>
+        <div className='column one'>
           <img src={list} alt='List' />
         </div>
-        <div className='column'>
+        <div className='column two'>
           <div className='column-btn'>
             <button>
               <a href='/login'>Login</a>

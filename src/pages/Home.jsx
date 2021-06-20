@@ -1,21 +1,18 @@
 import '../styles/main.css';
 import React, { useState } from 'react';
-import { nanoid } from 'nanoid';
-import { faSignInAlt, faSignOutAlt, faUserPlus, faHome } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Form from '../components/Form';
 import FilterButton from '../components/Buttons';
 import List from '../components/List';
-import NavBar from '../components/NavBar';
-import Login from './Login';
-import Register from './Register';
+import { useLayoutEffect } from 'react';
+import { useHistory } from 'react-router';
+import useContextGetter from '../hooks/useContextGetter';
 
-const DATA = [
-  { id: 'list-1', text: 'Pay Bills', desc: 'Electricity', class: 'checked' },
-  { id: 'list-2', text: 'Hit the gym', desc: 'burpees', class: '' },
-  { id: 'list-3', text: 'Buy eggs', desc: '2 trays', class: '' },
-  { id: 'list-4', text: 'Buy milk', desc: '2 litres', class: '' },
-];
+// const DATA = [
+//   { id: 'list-1', text: 'Pay Bills', desc: 'Electricity', class: 'checked' },
+//   { id: 'list-2', text: 'Hit the gym', desc: 'burpees', class: '' },
+//   { id: 'list-3', text: 'Buy eggs', desc: '2 trays', class: '' },
+//   { id: 'list-4', text: 'Buy milk', desc: '2 litres', class: '' },
+// ];
 
 const FILTER_MAP = {
   All: () => true,
@@ -27,42 +24,17 @@ const FILTER_NAMES = Object.keys(FILTER_MAP);
 
 function Home() {
   // states
-  const [tasks, setTasks] = useState(DATA);
   const [filter, setFilter] = useState('All');
 
-  //console.log(FILTER_NAMES);
+  const context = useContextGetter;
+  const history = useHistory();
+  console.log(context);
 
-  // task completed function
-  const toggleClassName = (id) => {
-    const updatedTask = tasks.map((task) => {
-      if (id === task.id) {
-        if (task.class === 'checked') {
-          return { ...task, class: '' };
-        } else {
-          return { ...task, class: 'checked' };
-        }
-      }
-      return task;
-    });
-    setTasks(updatedTask);
-  };
-
-  // delete task function
-  const deleteTask = (id) => {
-    const remainingTasks = tasks.filter((task) => id !== task.id);
-    console.log(remainingTasks);
-    setTasks(remainingTasks);
-  };
-  // edit task function
-  const editTask = (id, newText, newDesc) => {
-    const editedTaskList = tasks.map((task) => {
-      if (id === task.id) {
-        return { ...task, text: newText, desc: newDesc };
-      }
-      return task;
-    });
-    setTasks(editedTaskList);
-  };
+  useLayoutEffect(() =>{
+    if (!context.state.isUserLoggedIn) {
+      history.push('/login');
+    }
+  }, [context.state, history])
 
   // filter tasks button, (all, active, completed)
   const filterList = FILTER_NAMES.map((text) => (
@@ -75,82 +47,26 @@ function Home() {
   ));
 
   // task list
-  const taskList = tasks
+  const taskList = context.state.tasks
     .filter(FILTER_MAP[filter])
-    .map((task) => (
-      <List
-        id={task.id}
-        text={task.text}
-        desc={task.desc}
-        class={task.class}
+    .map(function (task) {
+     return (<List
         key={task.id}
-        toggleClassName={toggleClassName}
-        deleteTask={deleteTask}
-        editTask={editTask}
-      />
-    ));
-
-  // add tasks to the list function ... manipulates the onsubmit on the form
-  const addTask = (text, desc) => {
-    const newTask = {
-      id: 'list-' + nanoid(),
-      text: text,
-      desc: desc,
-      class: '',
-    };
-    console.log(newTask);
-    setTasks([...tasks, newTask]);
-  };
+        task = {task}
+      />);
+    });
 
   // the number of tasks remaining heading
   const tasksNoun = taskList.length !== 0 ? 'tasks' : 'task';
   const listHeading = `${taskList.length} ${tasksNoun} remaining`;
-
-  const modal = document.getElementById('id01');
-
-  // When the user clicks anywhere outside of the modal, close it
-  window.onClick = function (event) {
-    if (event.target === modal) {
-      modal.style.display = 'none';
-    }
-  };
-
-  const display = () =>{
-    if(modal){
-      return (modal.style.display = 'block');
-    }
-    };
-
-    const nonDisplay = () => {
-      modal.style.display = 'none';
-    };
-
+  
   return (
     <div className='App'>
-      <nav>
-        <ul className='nav-bar'>
-          <NavBar
-            href='/register'
-            title='Register'
-            icon={<FontAwesomeIcon icon={faUserPlus} />}
-          />
-          <NavBar
-            href='/login'
-            title='Login'
-            icon={<FontAwesomeIcon icon={faSignInAlt} />}
-          />
-          <NavBar
-            href='/home'
-            title='Home'
-            icon={<FontAwesomeIcon icon={faHome} />}
-          />
-        </ul>
-      </nav>
       <header className='App-header'>
         <h1>To-Do</h1>
       </header>
       <section>
-        <Form submit={addTask} />
+        <Form />
 
         <div className='btns'>{filterList}</div>
 

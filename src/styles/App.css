@@ -3,68 +3,9 @@
 }
 /* 404 Page Not Found Styling */
 html,body{
-  background-color: #F2F0E4;
-}
-main{
-	height: 100vh;
-	width: 100vw;
-	background: #592A0E;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	font-family: 'Merriweather Sans', sans-serif;
-    color: #F2F0E4;
-}
-#errorText{
-		font-size: 22px;
-		margin: 14px 0;
-}
-	
-#errorLink{
-		font-size: 20px;
-		padding: 12px;
-		border: 1px solid;
-		color: #F2F0E4;
-		background-color: transparent;
-		text-decoration: none;
-		transition: all 0.5s ease-in-out;
+  background-color: #592A0E;
 }
 
-#errorLink:hover{
-			background-color: #592A0E;
-			color: #F2F0E4;
-        }
-	#g6219{
-		transform-origin: 85px 4px ;
-		animation: an1 12s .5s infinite ease-out;
-    }
-@keyframes an1{
-	0%
-		{transform: rotate(0)}
-	5%
-		{transform: rotate(3deg)}
-	15%
-		{transform: rotate(-2.5deg)}
-	25%
-		{transform: rotate(2deg)}
-	35%
-		{transform: rotate(-1.5deg)}
-	45%
-		{transform: rotate(1deg)}
-	55%
-		{transform: rotate(-1.5deg)}
-	65%
-		{transform: rotate(2deg)}
-	75%
-		{transform: rotate(-2deg)}
-	85%
-		{transform: rotate(2.5deg)}
-	95%
-		{transform: rotate(-3deg)}
-	100%
-		{transform: rotate(0)}
-}
 
 /* Login Page */
 
@@ -134,13 +75,16 @@ span.psw {
 }
 
 /* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 320px) {
   span.psw {
      display: block;
      float: none;
   }
   .cancelbtn {
      width: 100%;
+  }
+  .column.one{
+    display: none;
   }
 }
 
@@ -183,7 +127,11 @@ span.psw {
   border: solid #A6691F;
   background-color: #F2C879;
 }
-
+.column img{
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+}
 .row{
   margin: 70px;
 }
@@ -198,7 +146,7 @@ span.psw {
   justify-content: center;
   display: flex;
   flex-direction: column;
-  margin: 90px;
+  margin: 135px 0 0 0;
 }
 .column button{
   width:70%;
@@ -227,6 +175,17 @@ span.psw {
   .column {
     width: 100%;
     margin-top: 0;
+  }
+  .column img{
+    width: 100%;
+    padding: 20px;
+    margin-top: 70px;
+  }
+  .column-btn{
+    margin: 70px 0 0 0;
+  }
+  .column.one{
+    display: none;
   }
   /* hide the vertical line */
   .vl {

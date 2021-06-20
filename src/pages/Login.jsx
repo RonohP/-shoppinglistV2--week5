@@ -1,59 +1,82 @@
-import React, { useState } from 'react';
-import { faUserPlus, faHome } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import NavBar from '../components/NavBar';
+import { useForm } from 'react-hook-form';
+import useLoggedIn from '../hooks/useLoggedIn';
+import useContextGetter from '../hooks/useContextGetter';
 import '../styles/App.css';
 
 const Login = () => {
+  
+  useLoggedIn();
+
+  const context = useContextGetter();
+
+  const { register, handleSubmit } = useForm();
+
+  const handleLogin = ({ email, password }) => {
+    //send request to api for validation
+    let userLogin = {
+      email: email,
+      password: password,
+    };
+
+    fetch(`https://user-manager-three.vercel.app/api/user/login`, {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(userLogin),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        if (result.error === true) {
+          alert(result.message);
+        }
+
+        context.dispatch({
+          type: 'LOGIN',
+          payload: result.body,
+        });
+      })
+      .catch((err) => {
+        alert('Error Occurred! Try again');
+        console.log('this error occurred', err);
+      });
+  };
 
   return (
     <div className='login-page'>
       <header className='App-header'>
         <h1>To-Do</h1>
       </header>
-      <nav>
-        <ul className='nav-bar'>
-          <NavBar
-            href='/register'
-            title='Register'
-            icon={<FontAwesomeIcon icon={faUserPlus} />}
-          />
-          <NavBar
-            href='/home'
-            title='Home'
-            icon={<FontAwesomeIcon icon={faHome} />}
-          />
-        </ul>
-      </nav>
+
       <div id='id01' className='modal'>
-        <form className='modal-content animate'>
+        <form
+          className='modal-content animate'
+          onSubmit={handleSubmit(handleLogin)}
+        >
+          <h1 style={{ textAlign: 'center' }}>Login/ Sign in</h1>
           <div className='container'>
             <input
-              type='text'
+              type='email'
               placeholder='Enter email...'
               name='email'
               required
+              {...register('email')}
             />
             <input
               type='password'
               placeholder='Enter Password...'
               name='psw'
               required
+              {...register('password')}
             />
             <button type='submit'>Login</button>
-            <input
-              type='checkbox'
-              defaultChecked='checked'
-              name='remember'
-            />{' '}
-            Remember me
           </div>
           <div className='container'>
-            {/* <button type='button' className='cancelbtn'>
-              Cancel
-            </button> */}
             <span className='psw'>
-              <a href='#'> Forgot password? </a>
+              <a href='/coming' style={{ color: 'dodgerblue' }}>
+                {' '}
+                Forgot password?{' '}
+              </a>
             </span>
           </div>
         </form>

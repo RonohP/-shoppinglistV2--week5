@@ -1,0 +1,62 @@
+main {
+  height: 100vh;
+  width: 100vw;
+  background: #592a0e;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Merriweather Sans', sans-serif;
+  color: #f2f0e4;
+}
+#errorText {
+  font-size: 22px;
+  margin: 14px 0;
+}
+
+#errorLink {
+  font-size: 20px;
+  padding: 12px;
+  border: 1px solid;
+  color: #f2f0e4;
+  background-color: transparent;
+  text-decoration: none;
+  transition: all 0.5s ease-in-out;
+}
+
+#errorLink:hover {
+  background-color: #592a0e;
+  color: #f2f0e4;
+}
+
+.wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #F2F0E4;
+}
+
+.typing-demo {
+  width: 12ch;
+  animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-family: monospace;
+  font-size: 2em;
+  margin: 50px;
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+}
+    
+@keyframes blink {
+  50% {
+    border-color: transparent
+  }
+}
