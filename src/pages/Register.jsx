@@ -3,11 +3,11 @@ import useLoggedIn from '../hooks/useLoggedIn';
 import useContextGetter from '../hooks/useContextGetter';
 
 const Register = () => {
+
   useLoggedIn();
 
-  const context = useContextGetter();
-
   const { register, handleSubmit } = useForm();
+  const context = useContextGetter();
 
   const handleRegister = ({ email, password, confirmPassword }) => {
     //check passwords match
@@ -31,7 +31,7 @@ const Register = () => {
       .then((res) => res.json())
       .then((result) => {
         if (result.error === true) {
-          alert(result.message);
+          return alert(result.message);
         }
 
         context.dispatch({
@@ -41,7 +41,7 @@ const Register = () => {
       })
       .catch((err) => {
         alert('Error Occured! Try again ');
-        console.log('this error occurred', err);
+        console.log('this error occurred', {err});
       });
   };
 

@@ -5,15 +5,15 @@ import {
   faHome,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router';
 import useContextGetter from '../hooks/useContextGetter';
+// import useLoggedIn from '../hooks/useLoggedIn';
 
 const NavBar = () => {
-  const {
-    dispatch,
-    state: { isUserLoggedIn },
-  } = useContextGetter();
-  console.log(isUserLoggedIn);
+
+  const { dispatch, state: isUserLoggedIn, } = useContextGetter();
+
   const location = useLocation();
 
   const logout = () => {
@@ -36,13 +36,15 @@ const NavBar = () => {
     }
 
     if (!isUserLoggedIn && location.pathname === '/register') {
-      <>
-        <li>
-          <Link to='/login' title='Login'>
-            {<FontAwesomeIcon icon={faSignInAlt} />}
-          </Link>
-        </li>
-      </>;
+      return (
+        <>
+          <li>
+            <Link to='/login' title='Login'>
+              {<FontAwesomeIcon icon={faSignInAlt} />}
+            </Link>
+          </li>
+        </>
+      );
     }
 
     if (isUserLoggedIn) {
@@ -69,32 +71,6 @@ const NavBar = () => {
         {renderNav()}
       </ul>
     </nav>
-    // <li>
-    //   <a href={props.href} title={props.title} onClick={props.onClick}>
-    //     {props.icon}
-    //   </a>
-    // </li>
-    // <ul className='nav-bar'>
-    //     <li>
-
-    //     </li>
-
-    //   <li >
-    //     <a href='/home' title='Home'>
-    //       {<FontAwesomeIcon icon={faHome} />}
-    //     </a>
-    //   </li>
-    //   <li>
-    //     <a href='/login' title='Login'>
-    //       {<FontAwesomeIcon icon={faSignInAlt} />}
-    //     </a>
-    //   </li>
-    //   <li>
-    //     <a href='/register' title='Register'>
-    //       {<FontAwesomeIcon icon={faUserPlus} />}
-    //     </a>
-    //   </li>
-    // </ul>
   );
 };
 

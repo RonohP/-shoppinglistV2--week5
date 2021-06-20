@@ -55,18 +55,18 @@ function reducer(state, action) {
     stateCopy.currentlyEditing = action.payload.id;
   }
 
-  if(action.type ==='UPDATE'){
-    stateCopy.tasks = stateCopy.tasks.map(task =>{
-      if(task.id === stateCopy.currentlyEditing){
-        if(task.class ==='checked'){
-          task.class = stateCopy.class
-        }else{
-          task.class = ''
-        }
-      }
-      return task;
-    })
-  }
+  // if(action.type ==='UPDATE'){
+  //   stateCopy.tasks = stateCopy.tasks.map(task =>{
+  //     if(task.id === stateCopy.currentlyEditing){
+  //       if(task.class ==='checked'){
+  //         task.class = stateCopy.class
+  //       }else{
+  //         task.class = ''
+  //       }
+  //     }
+  //     return task;
+  //   })
+  // }
 }
 
 const initialState = {
@@ -93,7 +93,9 @@ function State({ children }) {
   };
 
   return (
-    <AppContext.Provider value={contextObject}>{children}</AppContext.Provider>
+    <AppContext.Provider value={contextObject}>
+      {children}
+    </AppContext.Provider>
   );
 }
 

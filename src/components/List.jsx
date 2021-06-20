@@ -5,7 +5,7 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import '../styles/App.css';
 import useContextGetter from '../hooks/useContextGetter';
 
-const List = (task) => {
+const List = ({task}) => {
 
   const context = useContextGetter();
 

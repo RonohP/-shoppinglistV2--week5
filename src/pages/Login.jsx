@@ -6,6 +6,7 @@ import '../styles/App.css';
 const Login = () => {
   
   useLoggedIn();
+  console.log(useLoggedIn());
 
   const context = useContextGetter();
 
@@ -21,14 +22,14 @@ const Login = () => {
     fetch(`https://user-manager-three.vercel.app/api/user/login`, {
       method: 'POST',
       headers: {
-        'Content-type': 'application/json',
+        'content-type': 'application/json',
       },
       body: JSON.stringify(userLogin),
     })
       .then((res) => res.json())
       .then((result) => {
-        if (result.error === true) {
-          alert(result.message);
+        if (result.error) {
+          return alert(result.message);
         }
 
         context.dispatch({
@@ -38,7 +39,7 @@ const Login = () => {
       })
       .catch((err) => {
         alert('Error Occurred! Try again');
-        console.log('this error occurred', err);
+        console.log('this error occurred', {err});
       });
   };
 
